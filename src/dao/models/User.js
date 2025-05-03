@@ -7,6 +7,14 @@ const userSchema = new mongoose.Schema({
   password: String,
   role: String,
   pets: [String],
+  documents: [
+    {
+      name: String,
+      reference: String,
+    },
+  ],
+  last_connection: Date,
 });
 
 export const UserModel = mongoose.model('User', userSchema);
+

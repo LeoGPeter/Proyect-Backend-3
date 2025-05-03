@@ -1,0 +1,6 @@
+{"level":"http","message":"GET /api/mocks/loggerTest"}
+{"level":"debug","message":"⚙️ Debug log"}
+{"level":"http","message":"🌐 HTTP log"}
+{"level":"info","message":"ℹ️ Info log"}
+{"level":"warning","message":"⚠️ Warning log"}
+{"level":"error","message":"❌ Error log"}
