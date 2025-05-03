@@ -1,0 +1,137 @@
+openapi: 3.0.1
+info:
+  title: Adoptme API
+  description: API de adopciones de mascotas
+  version: "1.0.0"
+
+paths:
+  /api/sessions/register:
+    post:
+      summary: Registrar nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        201:
+          description: Usuario registrado correctamente
+        400:
+          description: Faltan campos obligatorios
+        409:
+          description: Usuario ya existente
+
+  /api/sessions/login:
+    post:
+      summary: Login de usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Login exitoso
+        401:
+          description: Usuario o contraseña inválidos
+
+  /api/sessions/logout:
+    post:
+      summary: Logout de sesión
+      responses:
+        200:
+          description: Sesión cerrada exitosamente
+
+  /api/pets:
+    get:
+      summary: Obtener todas las mascotas
+      responses:
+        200:
+          description: Lista de mascotas
+    post:
+      summary: Crear una nueva mascota
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                specie:
+                  type: string
+                age:
+                  type: integer
+      responses:
+        201:
+          description: Mascota creada
+        400:
+          description: Datos inválidos
+
+  /api/pets/withimage:
+    post:
+      summary: Crear mascota con imagen
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                specie:
+                  type: string
+                age:
+                  type: integer
+                pets:
+                  type: string
+                  format: binary
+      responses:
+        201:
+          description: Mascota creada con imagen
+        400:
+          description: Error al subir imagen
+
+  /api/adoptions:
+  get:
+    summary: Listar adopciones
+    responses:
+      200:
+        description: Lista de adopciones
+
+  post:
+    summary: Crear solicitud de adopción
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              pet_id:
+                type: string
+              user_id:
+                type: string
+    responses:
+      201:
+        description: Adopción registrada
+      400:
+        description: Error en los datos
