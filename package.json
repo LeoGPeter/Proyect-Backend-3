@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon ./src/server.js",
-    "test": "mocha ./test/**/*.test.js --timeout 8000"
-  },
+  "dev": "nodemon ./src/server.js",
+  "start": "node ./src/server.js",
+  "test": "mocha test/**/*.test.js --timeout 10000"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

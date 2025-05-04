@@ -7,6 +7,7 @@ import petsRouter from './routes/pets.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import adoptionsRouter from './routes/adoptions.router.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import { logger } from './logger/index.js';
 import { addLogger } from './middlewares/addLogger.js';
 import session from 'express-session';
 import swaggerUi from 'swagger-ui-express';
@@ -16,6 +17,7 @@ const app = express();
 const swaggerDoc = YAML.load('./src/docs/swagger.yaml');
 
 app.use(express.json());
+app.set('logger', logger);
 app.use(addLogger);
 
 app.use(session({

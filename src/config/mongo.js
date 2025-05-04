@@ -1,6 +1,6 @@
+import mongoose from 'mongoose';
 import dotenv from 'dotenv-flow';
 dotenv.config();
-import mongoose from 'mongoose';
 
 export const connectMongo = async () => {
   try {
@@ -8,5 +8,8 @@ export const connectMongo = async () => {
     console.log('🔥 Conectado a MongoDB');
   } catch (err) {
     console.error('❌ Error al conectar a MongoDB:', err);
+    process.exit(1); // corta si falla
   }
 };
+
+

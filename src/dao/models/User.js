@@ -1,20 +1,21 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  first_name: String,
-  last_name: String,
-  email: String,
-  password: String,
-  role: String,
-  pets: [String],
+  first_name: { type: String, required: true },
+  last_name:  { type: String, required: true },
+  email:      { type: String, required: true, unique: true },
+  password:   { type: String, required: true },
+  role:       { type: String, default: 'user' },
+  pets:       { type: [String], default: [] },
   documents: [
     {
-      name: String,
-      reference: String,
-    },
+      name: { type: String },
+      reference: { type: String },
+    }
   ],
   last_connection: Date,
 });
 
 export const UserModel = mongoose.model('User', userSchema);
+
 

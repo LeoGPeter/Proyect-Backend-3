@@ -4,3 +4,32 @@
 {"level":"info","message":"ℹ️ Info log"}
 {"level":"warning","message":"⚠️ Warning log"}
 {"level":"error","message":"❌ Error log"}
+{"level":"http","message":"GET /docs/"}
+{"level":"http","message":"GET /docs/swagger-ui.css"}
+{"level":"http","message":"GET /docs/swagger-ui-bundle.js"}
+{"level":"http","message":"GET /docs/swagger-ui-standalone-preset.js"}
+{"level":"http","message":"GET /docs/swagger-ui-init.js"}
+{"level":"http","message":"GET /api/pets"}
+{"level":"http","message":"POST /api/pets"}
+{"level":"http","message":"GET /api/pets"}
+{"level":"http","message":"POST /api/sessions/register"}
+{"level":"http","message":"POST /api/sessions/register"}
+{"level":"http","message":"POST /api/sessions/register"}
+{"level":"http","message":"POST /api/sessions/register"}
+{"level":"http","message":"POST /api/sessions/login"}
+{"level":"http","message":"POST /api/sessions/logout"}
+{"level":"http","message":"GET /"}
+{"level":"http","message":"POST /api/pets"}
+{"level":"http","message":"GET /docs/"}
+{"level":"http","message":"GET /docs/swagger-ui.css"}
+{"level":"http","message":"GET /docs/swagger-ui-bundle.js"}
+{"level":"http","message":"GET /docs/swagger-ui-standalone-preset.js"}
+{"level":"http","message":"GET /docs/swagger-ui-init.js"}
+{"level":"http","message":"POST /api/pets"}
+{"level":"http","message":"GET /api/pets"}
+{"level":"http","message":"GET /docs/"}
+{"level":"http","message":"GET /docs/swagger-ui.css"}
+{"level":"http","message":"GET /docs/swagger-ui-bundle.js"}
+{"level":"http","message":"GET /docs/swagger-ui-standalone-preset.js"}
+{"level":"http","message":"GET /docs/swagger-ui-init.js"}
+{"level":"http","message":"GET /docs/favicon-32x32.png"}

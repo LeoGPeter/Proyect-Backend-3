@@ -111,27 +111,28 @@ paths:
           description: Error al subir imagen
 
   /api/adoptions:
-  get:
-    summary: Listar adopciones
-    responses:
-      200:
-        description: Lista de adopciones
-
-  post:
-    summary: Crear solicitud de adopción
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              pet_id:
-                type: string
-              user_id:
-                type: string
-    responses:
-      201:
-        description: Adopción registrada
-      400:
-        description: Error en los datos
+    post:
+      tags:
+        - Adopciones
+      summary: Adoptar una mascota
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                petId:
+                  type: string
+              required:
+                - userId
+                - petId
+      responses:
+        200:
+          description: Adopción registrada
+        400:
+          description: Datos inválidos
+        500:
+          description: Error del servidor

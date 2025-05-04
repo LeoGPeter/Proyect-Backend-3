@@ -1,4 +1,11 @@
 import winston from 'winston';
+import fs from 'fs';
+
+// Crear carpeta logs si no existe
+const logDir = 'logs';
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir);
+}
 
 const customLevels = {
   levels: {
@@ -27,7 +34,8 @@ const buildLogger = (env) => {
       levels: customLevels.levels,
       transports: [
         new winston.transports.Console({ level: 'info' }),
-        new winston.transports.File({ filename: 'errors.log', level: 'error' }),
+        new winston.transports.File({ filename: 'logs/errors.log', level: 'error' }),
+        new winston.transports.File({ filename: 'logs/all.log', level: 'info' }),
       ],
     });
   } else {
