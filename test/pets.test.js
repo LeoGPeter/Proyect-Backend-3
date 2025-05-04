@@ -1,8 +1,13 @@
 import { expect } from 'chai';
 import supertest from 'supertest';
 import app from '../src/app.js'; // asegurate que esto exporte el app.listen correctamente
+import { connectMongo } from '../src/config/mongo.js';
 
 const requester = supertest(app);
+
+before(async () => {
+  await connectMongo();
+});
 
 describe('Pets API', () => {
   let petId;

@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv-flow';
 dotenv.config();
 import express from 'express';
 import mocksRouter from './routes/mocks.router.js';

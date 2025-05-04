@@ -5,16 +5,18 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon ./src/server.js",
-    "test": "mocha ./test/**/*.test.js"
+    "test": "mocha ./test/**/*.test.js --timeout 8000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^9.7.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
+    "dotenv-flow": "^4.1.0",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "mongoose": "^8.14.1",

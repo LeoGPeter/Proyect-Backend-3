@@ -1,3 +1,5 @@
+import dotenv from 'dotenv-flow';
+dotenv.config();
 import app from './app.js';
 import { connectMongo } from './config/mongo.js';
 

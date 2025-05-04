@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export function generateMockPets(count = 100) {
   const pets = [];

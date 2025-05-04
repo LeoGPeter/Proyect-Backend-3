@@ -1,3 +1,5 @@
+import dotenv from 'dotenv-flow';
+dotenv.config();
 import mongoose from 'mongoose';
 
 export const connectMongo = async () => {

@@ -1,17 +1,30 @@
 import { UserModel } from '../dao/models/User.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export const register = async (req, res) => {
     try {
       const { first_name, last_name, email, password } = req.body;
   
-      if (!first_name || !last_name || !email || !password) {
-        return res.status(400).json({ status: 'error', message: 'Faltan campos obligatorios' });
+      // Validación detallada
+      if (!first_name) {
+        return res.status(400).json({ status: 'error', error: 'first_name es requerido' });
+      }
+  
+      if (!last_name) {
+        return res.status(400).json({ status: 'error', error: 'last_name es requerido' });
+      }
+  
+      if (!email || !email.includes('@')) {
+        return res.status(400).json({ status: 'error', error: 'email inválido' });
+      }
+  
+      if (!password || password.length < 6) {
+        return res.status(400).json({ status: 'error', error: 'password inválido (mínimo 6 caracteres)' });
       }
   
       const existingUser = await UserModel.findOne({ email });
       if (existingUser) {
-        return res.status(409).json({ status: 'error', message: 'El usuario ya existe' });
+        return res.status(409).json({ status: 'error', error: 'El email ya está registrado' });
       }
   
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -28,6 +41,7 @@ export const register = async (req, res) => {
       });
   
       res.status(201).json({ status: 'success', message: 'Usuario registrado', user: newUser });
+  
     } catch (err) {
       req.logger?.error('Error en el registro', err);
       res.status(500).json({ status: 'error', message: 'Falló el registro' });

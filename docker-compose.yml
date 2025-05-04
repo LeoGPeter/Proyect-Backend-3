@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    container_name: adoptme-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.docker
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+
+  mongo:
+    image: mongo:6
+    container_name: adoptme-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
